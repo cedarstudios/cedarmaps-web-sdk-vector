@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8/>
+    <title>CedarMaps - Basic Map Load with a Marker</title>
+
+    <script src='../dist/v1.0.0/cedarmaps.js'></script>
+    <link href='../dist/v1.0.0/cedarmaps.css' rel='stylesheet'/>
+    <link href='./css/reverse-geocoder.css' rel='stylesheet'/>
+
+    <script src='../access-token.js'></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div id='map' class='map'></div>
+<div id="results">
+    <h2 style="text-align: center;">Click somewhere on the map!</h2>
+    <div id="loading"><img src="./img/loading-14-blue.gif" width="14" height="14"> Loading...</div>
+    <div id="latlng"></div>
+    <div id="parsed-response"></div>
+    <div id="raw-response"></div>
+</div>
+
+<script>
+  try {
+    var cedarMapsApi = CedarMaps.api(accessToken)
+  }
+  catch (err) {
+    throw new Error('You need to get an access token to be able to use cedarmaps SDK. ' +
+      'Send us an email to <info@cedar.ir>')
+  }
+
+  // initilizing map into div#map
+  var map = CedarMaps.map(accessToken, {
+    style: 'cedarmaps://styles/light',
+    container: 'map',
+    center: [51.3789253, 35.709987],
+    zoom: 15,
+    scrollWheelZoom: true,
+    zoomControl: false,
+    minZoom: 7,
+    maxZoom: 17,
+  })
+  var marker
+  var syntaxHighlight
+
+  // Setting up our DOM elements.
+  var resultsContainer = document.getElementById('results'),
+    latLngContainer = document.getElementById('latlng'),
+    parsedResponseContainer = document.getElementById('parsed-response'),
+    rawResponseContainer = document.getElementById('raw-response'),
+    loadingIndicator = document.getElementById('loading')
+
+  map.on('click', function (e) {
+    if (marker) marker.remove()
+    var clickedLat = e.lngLat.lat
+    var clickedLng = e.lngLat.lng
+
+    marker = new CedarMaps.gl.Marker().setLngLat(e.lngLat).addTo(map)
+
+    loading.style.visibility = 'visible'
+    latLngContainer.innerHTML = 'LatLng: ' + clickedLat + ', ' + clickedLng
+    cedarMapsApi.reverseGeocoding(clickedLat, clickedLng, cedarMapsApi.Constants.INDEXES.STREET_INDEX, function (err, result) {
+      if (err) {
+        return console.log(err)
+      }
+      loading.style.visibility = 'hidden'
+      parsedResponseContainer.style.display = 'block'
+      rawResponseContainer.style.display = 'block'
+
+      var parsedResponse = '<ul>' +
+        '<li><strong>استان:</strong> ' + result.province + '</li>' +
+        '<li><strong>شهر:</strong> ' + result.city + '</li>' +
+        '<li><strong>محله:</strong> ' + result.locality + '</li>' +
+        '<li><strong>خیابان:</strong> ' + result.address + '</li>' +
+        '<li><strong>در منطقه طرح ترافیک:</strong> ' + (result.traffic_zone.in_central ? 'بله' : 'خیر') + '</li>' +
+        '<li><strong>در منطقه زوج و فرد:</strong> ' + (result.traffic_zone.in_evenodd ? 'بله' : 'خیر') + '</li>' +
+        '</ul>'
+      var rawResponse = '<pre class="language-javascript">' + syntaxHighlight(JSON.stringify(result, undefined, 2)) + '</pre>'
+
+      parsedResponseContainer.innerHTML = parsedResponse
+      rawResponseContainer.innerHTML = rawResponse
+    })
+  })
+
+  syntaxHighlight = function (json) {
+    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+      var cls = 'number'
+      if (/^"/.test(match)) {
+        if (/:$/.test(match)) {
+          cls = 'key'
+        } else {
+          cls = 'string'
+        }
+      } else if (/true|false/.test(match)) {
+        cls = 'boolean'
+      } else if (/null/.test(match)) {
+        cls = 'null'
+      }
+      return '<span class="' + cls + '">' + match + '</span>'
+    })
+  }
+</script>
+</body>
+
+</html>

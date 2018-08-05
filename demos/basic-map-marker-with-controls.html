@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8/>
+    <title>CedarMaps - Basic Map Load with a Marker</title>
+
+    <script src='../dist/v1.0.0/cedarmaps.js'></script>
+    <link href='../dist/v1.0.0/cedarmaps.css' rel='stylesheet'/>
+    <script src='../access-token.js'></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div id='map' class='map'></div>
+<script>
+
+
+  // initilizing map into div#map
+  var map = CedarMaps.map(accessToken, {
+    style: 'cedarmaps://styles/light',
+    container: 'map',
+    center: [51.3789253, 35.709987],
+    zoom: 15,
+    scrollWheelZoom: true,
+    zoomControl: false,
+    minZoom: 7,
+    maxZoom: 17,
+  })
+
+  /**
+   * Adding a Leaflet marker with custom image
+   */
+
+  var element = document.createElement('div')
+  element.className = 'marker'
+  element.style.backgroundImage = 'url(./img/pin-taxi.png)'
+  element.style.width = '34px'
+  element.style.height = '46px'
+
+  var marker = new CedarMaps.gl.Marker(element).setLngLat([51.3789253, 35.709987]).addTo(map)
+  var controles = new CedarMaps.gl.NavigationControl()
+  var popup = new CedarMaps.gl.Popup({
+    closeButton: true,
+    closeOnClick: true,
+    offset: [0, -14],
+  }).setHTML('Hello World!')
+    .setLngLat([51.3789253, 35.709987])
+    .addTo(map)
+  map.addControl(controles)
+</script>
+</body>
+
+</html>

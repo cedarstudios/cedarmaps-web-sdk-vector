@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8/>
+    <title>CedarMaps - Simple Map Load</title>
+
+    <script src='../dist/v1.0.0/cedarmaps.js'></script>
+    <link href='../dist/v1.0.0/cedarmaps.css' rel='stylesheet'/>
+    <script src='../access-token.js'></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div id='map' class='map'></div>
+<script>
+  try {
+    var cedarMapsMethods = CedarMaps.api(accessToken)
+  } catch (err) {
+    console.log(err)
+    throw new Error('You need to get an access token to be able to use cedarmaps SDK. ' +
+      'Send us an email to <info@cedar.ir>')
+  }
+
+  /**
+   * Initilizing Map View
+   */
+
+    // initilizing map into div#map
+  var map = CedarMaps.map(accessToken, {
+      style: 'cedarmaps://styles/dark',
+      container: 'map',
+      scrollWheelZoom: true,
+      center: [51.378618, 35.767243],
+      zoom: 14
+    })
+
+  /**
+   * Initilizing Direction
+   */
+  var direction = cedarMapsMethods.direction
+
+  // Points should be separated by a semicolon. e.g.: lat,lng;lat,lng;lat,lng....
+  // You can provide up to 100 stops (including start, middle and end points) for a direction request. Here we provided 3.
+  direction({lat: 35.764335, lon: 51.365622}, {lat: 35.7604311, lon: 51.3939486}, {}, function (err, result) {
+    if (err) {
+      return console.log(err)
+    }
+    var RouteGeometry = result.routes[0].geometry
+    console.log(RouteGeometry)
+    map.addLayer({
+      'id': 'route',
+      'type': 'line',
+      'source': {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'properties': {},
+          'geometry': RouteGeometry
+        }
+      },
+      'layout': {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      'paint': {
+        'line-color': '#1cfff3',
+        'line-width': 5
+      }
+    })
+  })
+
+
+</script>
+</body>
+
+</html>
