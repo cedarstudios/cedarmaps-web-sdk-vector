@@ -80,7 +80,7 @@ Mapbox GL object
   var marker = new CedarMaps.gl.Marker().setLngLat([51.3789253, 35.709987]).addTo(map)
 ```
 
-_Example_: Check out a [Live example of address locator](https://demo.cedarmaps.com/websdk-vectoe/demos/basic-map-marker.html).
+_Example_: Check out a [Live example](https://demo.cedarmaps.com/websdk-vector/demos/basic-map-marker.html).
 
 ## api
 CedarMaps API. please see [cedarmaps npm package](https://www.npmjs.com/package/cedar-maps) for more information
