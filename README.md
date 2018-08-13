@@ -14,8 +14,8 @@ CedarMaps JS is a javascript library for building interactive maps. It's simply 
 Recommended usage is via the CedarMaps CDN. Just include CSS and JavaScript files in `<head>` section of your HTML file.
 
 ```html
-<script src='https://api.cedarmaps.com/cedarmaps-gl.js/v1.0.0/cedarmaps.js'></script>
-<link href='https://api.cedarmaps.com/cedarmaps-gl.js/v1.0.0/cedarmaps.css' rel='stylesheet'/>
+<script src='https://api.cedarmaps.com/cedarmaps-gl.js/v1.1.0/cedarmaps.js'></script>
+<link href='https://api.cedarmaps.com/cedarmaps-gl.js/v1.1.0/cedarmaps.css' rel='stylesheet'/>
 ```
 
 and put the following code in the `<body>` of your HTML file:
@@ -26,7 +26,7 @@ and put the following code in the `<body>` of your HTML file:
 <script type="text/javascript">
     var accessToken = 'ACCESS TOKEN' // You can get an access token by filling out the demo account form in https://www.cedarmaps.com/#demo
 	var map = CedarMaps.map(accessToken, {
-        style: 'cedarmaps://styles/light', //or cedarmaps://styles/dark
+        style: 'style://streets-light', //or style://streets-dark
         container: 'map',
         center: [51.391827, 35.694875],
         zoom: 15
@@ -67,7 +67,7 @@ _Returns_ a `Map box` object.
 
 ```javascript
 CedarMaps.map(accessToken, {
-        style: 'cedarmaps://styles/light', //or cedarmaps://styles/dark
+        style: 'style://streets-light', //or style://streets-dark
         container: <CONTAINER ID>,
         center: <CENTER POINT>,
         zoom: 15

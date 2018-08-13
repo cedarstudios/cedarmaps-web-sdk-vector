@@ -3,8 +3,8 @@
 const mapboxGl = require('mapbox-gl')
 const cedarMapsMethods = require('cedar-maps')
 const styleMapper = {
-  'cedarmaps://styles/light': 'https://api.cedarmaps.com/v1/styles/cedarmaps.light.json',
-  'cedarmaps://styles/dark': 'https://api.cedarmaps.com/v1/styles/cedarmaps.dark.json'
+  'style://streets-light': 'https://api.cedarmaps.com/v1/styles/cedarmaps.light.json',
+  'style://streets-dark': 'https://api.cedarmaps.com/v1/styles/cedarmaps.dark.json'
 }
 
 const map = (accessToken, options) => {

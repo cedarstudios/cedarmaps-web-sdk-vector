@@ -5,8 +5,8 @@
     <meta charset=utf-8/>
     <title>CedarMaps - Basic Map Load with a Marker</title>
 
-    <script src='../dist/v1.0.0/cedarmaps.js'></script>
-    <link href='../dist/v1.0.0/cedarmaps.css' rel='stylesheet'/>
+    <script src='../dist/v1.1.0/cedarmaps.js'></script>
+    <link href='../dist/v1.1.0/cedarmaps.css' rel='stylesheet'/>
     <link href='./css/reverse-geocoder.css' rel='stylesheet'/>
 
     <script src='../access-token.js'></script>
@@ -47,7 +47,7 @@
 
   // initilizing map into div#map
   var map = CedarMaps.map(accessToken, {
-    style: 'cedarmaps://styles/light',
+    style: 'style://streets-light',
     container: 'map',
     center: [51.3789253, 35.709987],
     zoom: 15,

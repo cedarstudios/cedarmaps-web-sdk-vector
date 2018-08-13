@@ -5,8 +5,8 @@
     <meta charset=utf-8/>
     <title>CedarMaps - Simple Map Load</title>
 
-    <script src='../dist/v1.0.0/cedarmaps.js'></script>
-    <link href='../dist/v1.0.0/cedarmaps.css' rel='stylesheet'/>
+    <script src='../dist/v1.1.0/cedarmaps.js'></script>
+    <link href='../dist/v1.1.0/cedarmaps.css' rel='stylesheet'/>
     <script src='../access-token.js'></script>
     <style>
         body {
@@ -40,7 +40,7 @@
 
     // initilizing map into div#map
   var map = CedarMaps.map(accessToken, {
-      style: 'cedarmaps://styles/dark',
+      style: 'style://streets-dark',
       container: 'map',
       scrollWheelZoom: true,
       center: [51.378618, 35.767243],
