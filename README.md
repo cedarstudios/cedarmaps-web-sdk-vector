@@ -24,10 +24,11 @@ and put the following code in the `<body>` of your HTML file:
 <div id='map' style='width: 400px; height: 300px;'></div>
 
 <script type="text/javascript">
+    var accessToken = 'ACCESS TOKEN' // You can get an access token by filling out the demo account form in https://www.cedarmaps.com/#demo
 	var map = CedarMaps.map(accessToken, {
         style: 'cedarmaps://styles/light', //or cedarmaps://styles/dark
-        container: <CONTAINER ID>,
-        center: <CENTER POINT>,
+        container: 'map',
+        center: [51.391827, 35.694875],
         zoom: 15
         });
 </script>
@@ -39,8 +40,8 @@ If you prefer to have your local version of the library you can simply build it 
 **Note:** [node.js](http://nodejs.org/) must be installed on your machine.
 
 ```sh
-git clone http://gitlab.cedar.ir/cedar.studios/cedarmaps-sdk-web-vector.git
-cd cedarmaps-sdk-web-vector
+git clone http://gitlab.cedar.ir/cedar.studios/cedarmaps-sdk-web-vector-public.git
+cd cedarmaps-sdk-web-vector-public
 npm install
 npx webpack
 ```
