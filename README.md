@@ -54,7 +54,7 @@ git pull
 npx webpack
 ```
 
-You can also see the [API documentation](hhttps://www.mapbox.com/mapbox-gl-js) for further help.
+You can also see the [API documentation](https://www.mapbox.com/mapbox-gl-js) for further help.
 
 # API
 
