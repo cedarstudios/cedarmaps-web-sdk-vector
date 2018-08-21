@@ -14,8 +14,8 @@ CedarMaps JS is a javascript library for building interactive maps. It's simply 
 Recommended usage is via the CedarMaps CDN. Just include CSS and JavaScript files in `<head>` section of your HTML file.
 
 ```html
-<script src='https://api.cedarmaps.com/cedarmaps-gl.js/v1.1.0/cedarmaps.js'></script>
-<link href='https://api.cedarmaps.com/cedarmaps-gl.js/v1.1.0/cedarmaps.css' rel='stylesheet'/>
+<script src='https://api.cedarmaps.com/cedarmaps-gl.js/v2.0.0/cedarmaps.js'></script>
+<link href='https://api.cedarmaps.com/cedarmaps-gl.js/v2.0.0/cedarmaps.css' rel='stylesheet'/>
 ```
 
 and put the following code in the `<body>` of your HTML file:
@@ -56,6 +56,14 @@ npx webpack
 
 You can also see the [API documentation](https://www.mapbox.com/mapbox-gl-js) for further help.
 
+# Demos
+[Basic map marker live example](https://demo.cedarmaps.com/websdk-vector/demos/basic-map-marker.html)
+
+[Basic map marker with controls live example](https://demo.cedarmaps.com/websdk-vector/demos/basic-map-marker-with-controls.html)
+
+[Direction live example](https://demo.cedarmaps.com/websdk-vector/demos/direction.html)
+
+[Reverse geocoder live example](https://demo.cedarmaps.com/websdk-vector/demos/reverse-geocoder.html)
 # API
 
 ## map
@@ -81,7 +89,6 @@ Mapbox GL object
   var marker = new CedarMaps.gl.Marker().setLngLat([51.3789253, 35.709987]).addTo(map)
 ```
 
-_Example_: Check out a [Live example](https://demo.cedarmaps.com/websdk-vector/demos/basic-map-marker.html).
 
 ## api
 CedarMaps API. please see [cedarmaps npm package](https://www.npmjs.com/package/cedar-maps) for more information
