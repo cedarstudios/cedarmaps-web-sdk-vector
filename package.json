@@ -4,17 +4,16 @@
   "description": "CedarMaps javascript API built on top of mapbox.js",
   "version": "2.1.1",
   "homepage": "http://www.cedarmaps.com/",
+  "scripts": {
+    "build": "npx webpack"
+  },
   "repository": {
     "type": "git",
     "url": "http://gitlab.kikojas.com/cedar.studios/cedarmaps-sdk-web.git"
   },
   "main": "src/index.js",
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "cedar-maps": "^2.0.1",
+    "@cedarstudios/cedarmaps-geo-tools": "^2.0.5",
     "mapbox-gl": "^0.47.0"
   },
   "optionalDependencies": {},
@@ -22,6 +21,10 @@
     "node": "*"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "webpack": "^4.16.3",

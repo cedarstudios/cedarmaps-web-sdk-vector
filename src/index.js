@@ -1,7 +1,7 @@
 'use strict'
 
 const mapboxGl = require('mapbox-gl')
-const cedarMapsMethods = require('cedar-maps')
+const cedarMapsMethods = require('@cedarstudios/cedarmaps-geo-tools')
 const styleMapper = {
   'style://streets-light': 'https://api.cedarmaps.com/v1/styles/cedarmaps.light.json',
   'style://streets-dark': 'https://api.cedarmaps.com/v1/styles/cedarmaps.dark.json'

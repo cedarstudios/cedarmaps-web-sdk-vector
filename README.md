@@ -91,4 +91,4 @@ Mapbox GL object
 
 
 ## api
-CedarMaps API. please see [cedarmaps npm package](https://www.npmjs.com/package/cedar-maps) for more information
+CedarMaps API. please see [cedarmaps npm package](https://www.npmjs.com/package/@cedarstudios/cedarmaps-geo-tools) for more information
