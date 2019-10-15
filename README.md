@@ -1,4 +1,6 @@
 # Cedarmaps Web SDK Vector
+![CedarMaps vector tiles](https://github.com/cedarstudios/cedarstudios.github.io/raw/master/cedarmaps-web-sdk-vector.gif)
+
 
 CedarMaps GL JS is a JavaScript library that uses WebGL to render interactive maps from vector tiles. Built on top of [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js).
 
