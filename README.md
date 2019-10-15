@@ -8,6 +8,7 @@ CedarMaps GL JS is a JavaScript library that uses WebGL to render interactive ma
 
 # Table of Contents
 - [Basic usage via CDN](#basic-usage-via-cdn)
+- [Map Themes](#map-themes)
 - [Checking out demo files](#checking-out-demo-files)
 - [Building SDK locally](#building-sdk-locally)
 - [Pulling new changes from repo](#pulling-new-changes-from-repo)
@@ -35,6 +36,14 @@ CedarMaps GL JS is a JavaScript library that uses WebGL to render interactive ma
         });
 </script>
 ```
+
+# Map Themes
+Cedar Maps currently comes in light and dark themes. You may choose one based on your preference.
+
+![CedarMaps Themes](https://github.com/cedarstudios/cedarstudios.github.io/raw/master/vector-gallery.jpg)
+
+
+
 # Checking out demo files
 In order to check out demo files in `/demos` folder you need to build the SDK locally or change the script and css paths to our CDN ones mentioned above. 
 
