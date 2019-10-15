@@ -17,8 +17,7 @@ CedarMaps GL JS is a JavaScript library that uses WebGL to render interactive ma
 
 <script type="text/javascript">
     // In order to use Cedar Maps you **MUST** have an access token
-  var accessToken = 'YOUR_ACCESS_TOKEN';
-	var map = CedarMaps.map(accessToken, {
+	var map = cedarmapsgl.map('YOUR_ACCESS_TOKEN', {
         style: 'style://streets-light', // Other available style: 'style://streets-dark'
         container: 'map',
         center: [51.391827, 35.694875],
