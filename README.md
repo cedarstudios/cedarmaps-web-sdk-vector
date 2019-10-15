@@ -4,6 +4,14 @@ CedarMaps GL JS is a JavaScript library that uses WebGL to render interactive ma
 
 **Note:** This repo is for "vector tiles". If you prefer to use our "raster tiles" please check out our [Web SDK Raster](https://github.com/cedarstudios/cedarmaps-web-sdk-raster) repository.
 
+# Table of Contents
+- [Basic usage via CDN](#basic-usage-via-cdn)
+- [Checking out demo files](#checking-out-demo-files)
+- [Building SDK locally](#building-sdk-locally)
+- [Pulling new changes from repo](#pulling-new-changes-from-repo)
+- [API](#api)
+- [Cedar Maps Services](#cedar-maps-services)
+
 # Basic usage via CDN
 1. Get an access token from [Cedar Maps website](https://www.cedarmaps.com/) (Menu link: "درخواست اکانت رایگان"). It may take a couple of hours until your request is processed and your credentials are emailed to you.
 2. Include these CSS and JavaScript files in `<head>` section of your HTML file.
