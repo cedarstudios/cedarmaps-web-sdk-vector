@@ -62,8 +62,6 @@ You can also see the [API documentation](https://www.mapbox.com/mapbox-gl-js) fo
 # API
 CedarMaps GL is simply a wrapper for [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js). You may find an extensive API documentation from the [original library](https://docs.mapbox.com/mapbox-gl-js/api).
 
-CedarMaps API. please see [cedarmaps npm package](https://www.npmjs.com/package/@cedarstudios/cedarmaps) for more information
-
 # Cedar Maps Services
 Contrary to our [Web SDK Raster](https://github.com/cedarstudios/cedarmaps-web-sdk-raster) which is by nature integrated with Cedar Maps services like forward/reverse geocoding, direction, etc., these services are separated in Web SDK Vector and are offered in an standalone NPM package [@cedarstudios/cedarmaps](https://www.npmjs.com/package/@cedarstudios/cedarmaps). But we've included them under `cedarmapsgl.api` anyway.
 
