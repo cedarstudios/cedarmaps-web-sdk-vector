@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <title>CedarMaps - Basic Map Load with a Marker</title>
 
-    <script src='../dist/v2.1.1/cedarmaps.js'></script>
-    <link href='../dist/v2.1.1/cedarmaps.css' rel='stylesheet'/>
-    <link href='./css/reverse-geocoder.css' rel='stylesheet'/>
+    <script src='../dist/v2.2.0/cedarmaps-gl.js'></script>
+    <link href='../dist/v2.2.0/cedarmaps-gl.css' rel='stylesheet'/>
     <script src='../access-token.js'></script>
+    <link href='./css/reverse-geocoder.css' rel='stylesheet'/>
 
     <style>
         body {
@@ -16,7 +16,7 @@
             padding: 0;
         }
 
-        .map {
+        #map {
             position: absolute;
             top: 0;
             bottom: 0;
@@ -37,7 +37,7 @@
 
 <script>
   try {
-    var cedarMapsApi = CedarMaps.api(accessToken)
+    var cedarMapsApi = cedarmapsgl.api(accessToken)
   }
   catch (err) {
     throw new Error('You need to get an access token to be able to use cedarmaps SDK. ' +
@@ -45,7 +45,7 @@
   }
 
   // initilizing map into div#map
-  var map = CedarMaps.map(accessToken, {
+  var map = cedarmapsgl.map(accessToken, {
     style: 'style://streets-light',
     container: 'map',
     center: [51.3789253, 35.709987],
@@ -70,11 +70,11 @@
     var clickedLat = e.lngLat.lat
     var clickedLng = e.lngLat.lng
 
-    marker = new CedarMaps.gl.Marker().setLngLat(e.lngLat).addTo(map)
+    marker = new cedarmapsgl.Marker().setLngLat(e.lngLat).addTo(map)
 
     loading.style.visibility = 'visible'
     latLngContainer.innerHTML = 'LatLng: ' + clickedLat + ', ' + clickedLng
-    cedarMapsApi.reverseGeocoding(clickedLat, clickedLng, cedarMapsApi.Constants.INDEXES.STREET_INDEX, function (err, result) {
+    cedarMapsApi.reverseGeocoding(e.lngLat, {}, function (err, result) {
       if (err) {
         return console.log(err)
       }

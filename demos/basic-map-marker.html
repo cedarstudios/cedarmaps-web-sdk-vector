@@ -3,12 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>CedarMaps - Basic Map Load with a Marker</title>
+    <title>CedarMaps - Basic Map Load with a Marker - نمایش نقشه و اضافه کردن مارکر</title>
 
-    <script src='../dist/v2.1.1/cedarmaps.js'></script>
-    <link href='../dist/v2.1.1/cedarmaps.css' rel='stylesheet'/>
+    <script src='../dist/v2.2.0/cedarmaps-gl.js'></script>
+    <link href='../dist/v2.2.0/cedarmaps-gl.css' rel='stylesheet'/>
     <script src='../access-token.js'></script>
-
 
     <style>
         body {
@@ -16,7 +15,7 @@
             padding: 0;
         }
 
-        .map {
+        #map {
             position: absolute;
             top: 0;
             bottom: 0;
@@ -26,12 +25,14 @@
 </head>
 
 <body>
-<div id='map' class='map'></div>
+<div id="map"></div>
+
 <script>
-
-
   // initilizing map into div#map
-  var map = CedarMaps.map(accessToken, {
+  // Please not the lowercase m in map as this is the only difference compared to
+  // other methods of cedarmaps-gl. For more options please visit the original library
+  // which cedarmaps is based on to: https://docs.mapbox.com/mapbox-gl-js/api/#map
+  var map = cedarmapsgl.map(accessToken, {
     style: 'style://streets-light',
     container: 'map',
     center: [51.3789253, 35.709987],
@@ -40,28 +41,29 @@
     zoomControl: false,
     minZoom: 7,
     maxZoom: 17,
-  })
+  });
 
-  /**
-   * Adding a Leaflet marker with custom image
-   */
-
+  // Adding a Leaflet marker with custom image
+  // More info on Markers: https://docs.mapbox.com/mapbox-gl-js/api/#marker
   var element = document.createElement('div')
   element.className = 'marker'
-  element.style.backgroundImage = 'url(./img/pin-taxi.png)'
+  element.style.backgroundImage = 'url(./img/pin-taxi.png)';
   element.style.width = '34px'
   element.style.height = '46px'
 
-  var marker = new CedarMaps.gl.Marker(element).setLngLat([51.3789253, 35.709987]).addTo(map)
-
-  var popup = new CedarMaps.gl.Popup({
+  // Defining a popup to add to our marker later.
+  // More info on Popups: https://docs.mapbox.com/mapbox-gl-js/api/#popup
+  var popup = new cedarmapsgl.Popup({
     closeButton: true,
     closeOnClick: true,
     offset:[0,-14],
-  }).setHTML('Hello World!')
-    .setLngLat([51.3789253, 35.709987])
-    .addTo(map)
+  }).setHTML('سلام دنیا');
 
+  // Defining our custom marker and adding it to map
+  var marker = new cedarmapsgl.Marker({element:element, draggable: true})
+                  .setLngLat([51.3789253, 35.709987])
+                  .setPopup(popup)
+                  .addTo(map);
 </script>
 </body>
 

@@ -1,20 +1,20 @@
 {
   "author": "CedarStudios",
   "name": "cedarmaps.js",
-  "description": "CedarMaps javascript API built on top of mapbox.js",
-  "version": "2.1.1",
-  "homepage": "http://www.cedarmaps.com/",
+  "description": "CedarMaps GL JS is a JavaScript library that uses WebGL to render interactive maps from vector tiles. Built on top of Mapbox GL.",
+  "version": "2.2.0",
+  "homepage": "https://www.cedarmaps.com",
   "scripts": {
     "build": "npx webpack"
   },
   "repository": {
     "type": "git",
-    "url": "http://gitlab.kikojas.com/cedar.studios/cedarmaps-sdk-web.git"
+    "url": "https://github.com/cedarstudios/cedarmaps-web-sdk-vector"
   },
   "main": "src/index.js",
   "dependencies": {
-    "@cedarstudios/cedarmaps-geo-tools": "^2.0.5",
-    "mapbox-gl": "^0.47.0"
+    "@cedarstudios/cedarmaps": "^1.0.2",
+    "mapbox-gl": "^1.4.1"
   },
   "optionalDependencies": {},
   "engines": {

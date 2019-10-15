@@ -4,8 +4,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'cedarmaps.js',
-    library: 'CedarMaps',
+    filename: 'cedarmaps-gl.js',
+    library: 'cedarmapsgl',
     libraryTarget: 'umd',
     umdNamedDefine: true,
     path: path.resolve(__dirname, 'dist', `v${require('./package.json').version}`)
@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         from: './src/css/cedarmaps.css',
-        to: path.resolve(__dirname, 'dist',`v${require('./package.json').version}`, 'cedarmaps.css')
+        to: path.resolve(__dirname, 'dist',`v${require('./package.json').version}`, 'cedarmaps-gl.css')
       }
     ])
   ],

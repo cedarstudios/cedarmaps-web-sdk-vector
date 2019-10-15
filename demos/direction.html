@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <title>CedarMaps - Simple Map Load</title>
 
-    <script src='../dist/v2.1.1/cedarmaps.js'></script>
-    <link href='../dist/v2.1.1/cedarmaps.css' rel='stylesheet'/>
+    <script src='../dist/v2.2.0/cedarmaps-gl.js'></script>
+    <link href='../dist/v2.2.0/cedarmaps-gl.css' rel='stylesheet'/>
     <script src='../access-token.js'></script>
     <style>
         body {
@@ -14,7 +14,7 @@
             padding: 0;
         }
 
-        .map {
+        #map {
             position: absolute;
             top: 0;
             bottom: 0;
@@ -24,22 +24,21 @@
 </head>
 
 <body>
-<div id='map' class='map'></div>
+<div id="map"></div>
 <script>
   try {
-    var cedarMapsMethods = CedarMaps.api(accessToken)
+    var cedarMapsMethods = cedarmapsgl.api(accessToken)
   } catch (err) {
     console.log(err)
     throw new Error('You need to get an access token to be able to use cedarmaps SDK. ' +
       'Send us an email to <info@cedar.ir>')
   }
 
-  /**
-   * Initilizing Map View
-   */
-
-    // initilizing map into div#map
-  var map = CedarMaps.map(accessToken, {
+// initilizing map into div#map
+  // Please not the lowercase m in map as this is the only difference compared to
+  // other methods of cedarmaps-gl. For more options please visit the original library
+  // which cedarmaps is based on to: https://docs.mapbox.com/mapbox-gl-js/api/#map
+  var map = cedarmapsgl.map(accessToken, {
       style: 'style://streets-dark',
       container: 'map',
       scrollWheelZoom: true,
