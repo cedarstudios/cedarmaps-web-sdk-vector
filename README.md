@@ -57,8 +57,6 @@ git pull
 npx webpack
 ```
 
-You can also see the [API documentation](https://www.mapbox.com/mapbox-gl-js) for further help.
-
 # API
 CedarMaps GL is simply a wrapper for [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js). You may find an extensive API documentation from the [original library](https://docs.mapbox.com/mapbox-gl-js/api).
 
