@@ -22,9 +22,9 @@ CedarMaps GL JS is a JavaScript library that uses WebGL to render interactive ma
 <script src='https://api.cedarmaps.com/cedarmaps-gl.js/v2.2.0/cedarmaps-gl.js'></script>
 <link href='https://api.cedarmaps.com/cedarmaps-gl.js/v2.2.0/cedarmaps-gl.css' rel='stylesheet'/>
 ```
-3. Put the following code in the <body> of your HTML file:
+3. Put the following code in the `<body>` section of your HTML file **After replacing 'YOUR_ACCESS_TOKEN' on line 5**:
 ```html
-<div id='map' style='width: 400px; height: 300px;'></div>
+<div id='map' style='width: 800px; height: 600px;'></div>
 
 <script type="text/javascript">
     // In order to use Cedar Maps you **MUST** have an access token
